@@ -141,3 +141,69 @@ Example:
 
 ## File Location
 This documentation is for the endpoint defined in `Backend/routes/user.routes.js`.
+
+# User Profile Endpoint
+
+## Endpoint
+`GET /users/profile`
+
+## Description
+This endpoint is used to retrieve the profile of the authenticated user.
+
+## Response
+### Success (200 OK)
+If the user is authenticated, the server will respond with a JSON object containing the user details.
+
+Example:
+```json
+{
+  "_id": "user-id",
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.doe@example.com",
+}
+```
+
+### Error (401 Unauthorized)
+If the user is not authenticated, the server will respond with a JSON object containing an error message.
+
+Example:
+```json
+{
+  "error": "Unauthorized"
+}
+```
+
+## Status Codes
+- `200 OK`: The user is authenticated.
+- `401 Unauthorized`: The user is not authenticated.
+
+## File Location
+This documentation is for the endpoint defined in `Backend/routes/user.routes.js`.
+
+# User Logout Endpoint
+
+## Endpoint
+`POST /users/logout`
+
+## Description
+This endpoint is used to log out the authenticated user. It clears the authentication token and blacklists it.
+
+## Response
+### Success (200 OK)
+If the user is successfully logged out, the server will respond with a JSON object containing a success message.
+
+Example:
+```json
+{
+  "message": "Logout successful"
+}
+```
+
+## Status Codes
+- `200 OK`: The user was successfully logged out.
+
+## File Location
+This documentation is for the endpoint defined in `Backend/routes/user.routes.js`.
