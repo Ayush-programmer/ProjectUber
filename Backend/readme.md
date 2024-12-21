@@ -81,3 +81,63 @@ Example:
 
 ## File Location
 This documentation is for the endpoint defined in `Backend/routes/user.routes.js`.
+
+# User Login Endpoint
+
+## Endpoint
+`POST /users/login`
+
+## Description
+This endpoint is used to authenticate a user. It validates the input data, checks the credentials, and returns a JSON response with a token and user details if the credentials are valid.
+
+## Request Body
+The request body should be a JSON object with the following fields:
+
+- `email`: A string representing a valid email address (required).
+- `password`: A string with at least 6 characters (required).
+
+Example:
+```json
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+```
+
+## Response
+### Success (200 OK)
+If the credentials are valid, the server will respond with a JSON object containing the authentication token and user details.
+
+Example:
+```json
+{
+  "token": "your-auth-token",
+  "user": {
+    "_id": "user-id",
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "john.doe@example.com",
+    "password": "hashed-password",
+    "socketId": null
+  }
+}
+```
+
+### Error (401 Unauthorized)
+If the credentials are invalid, the server will respond with a JSON object containing an error message.
+
+Example:
+```json
+{
+  "error": "Invalid email or password"
+}
+```
+
+## Status Codes
+- `200 OK`: The credentials are valid.
+- `401 Unauthorized`: The credentials are invalid.
+
+## File Location
+This documentation is for the endpoint defined in `Backend/routes/user.routes.js`.
