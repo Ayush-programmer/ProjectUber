@@ -302,3 +302,88 @@ Example:
 
 ## File Location
 This documentation is for the endpoint defined in `Backend/routes/captain.routes.js`.
+
+# Get Captain Profile Endpoint
+
+## Endpoint
+`GET /captains/profile`
+
+## Description
+This endpoint is used to retrieve the profile of the authenticated captain. It requires a valid authentication token.
+
+## Response
+### Success (200 OK)
+If the authentication token is valid, the server will respond with a JSON object containing the captain's profile details.
+
+Example:
+```json
+{
+  "captain": {
+    "_id": "captain-id",
+    "fullname": {
+      "firstname": "John",
+      "lastname": "Doe"
+    },
+    "email": "john.doe@example.com",
+    "vehicle": {
+      "color": "red",
+      "plate": "ABC123",
+      "capacity": 4,
+      "type": "car"
+    }
+  }
+}
+```
+
+### Error (401 Unauthorized)
+If the authentication token is invalid or missing, the server will respond with a JSON object containing an error message.
+
+Example:
+```json
+{
+  "error": "Unauthorized"
+}
+```
+
+## Status Codes
+- `200 OK`: The authentication token is valid.
+- `401 Unauthorized`: The authentication token is invalid or missing.
+
+## File Location
+This documentation is for the endpoint defined in `Backend/routes/captain.routes.js`.
+
+# Captain Logout Endpoint
+
+## Endpoint
+`GET /captains/logout`
+
+## Description
+This endpoint is used to log out the authenticated captain. It invalidates the authentication token.
+
+## Response
+### Success (200 OK)
+If the captain is successfully logged out, the server will respond with a JSON object containing a success message.
+
+Example:
+```json
+{
+  "message": "Logout successfully"
+}
+```
+
+### Error (401 Unauthorized)
+If the authentication token is invalid or missing, the server will respond with a JSON object containing an error message.
+
+Example:
+```json
+{
+  "error": "Unauthorized"
+}
+```
+
+## Status Codes
+- `200 OK`: The captain was successfully logged out.
+- `401 Unauthorized`: The authentication token is invalid or missing.
+
+## File Location
+This documentation is for the endpoint defined in `Backend/routes/captain.routes.js`.
